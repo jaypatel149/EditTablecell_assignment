@@ -1,3 +1,9 @@
+#using json-server database
+
+1. npm install json-server port-3001
+2. npm install axios 
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
