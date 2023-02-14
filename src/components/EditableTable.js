@@ -1,5 +1,7 @@
 import { useState,useEffect } from 'react';
+// import './EditableCell.css'
 import axios from 'axios';
+import EditableCell from './EditableCell';
 
 const EditableTable = () => {
 
@@ -25,6 +27,19 @@ const EditableTable = () => {
   };
 
 
+
+
+  const handleCreate = () => {
+    const newId = data.length + 1;
+    const newData = [...data, { id: newId}];
+    setData(newData);
+    axios.post('http://localhost:3001/data', )
+      .catch(error => {
+        console.log(error);
+      });
+  };
+
+
   // update cell data handler----------------
 
   // const handleUpdate = (event) => {
@@ -33,20 +48,27 @@ const EditableTable = () => {
   // };
 
 
-
-  const handleChange = (id, key, value) => {
-    const updatedData = data.map((row) => {
-      if (row.id === id) {
-        return { ...row, [key]: value };
+  const handleEdit = (id, key, value) => {
+    const newData = data.map(item => {
+      if (item.id === id) {
+        return { ...item, [key]: value };
+      } else {
+        return item;
       }
-      return row;
     });
-    setData(updatedData);
+    setData(newData);
+    axios.put(`http://localhost:3001/data/${id}`, { [key]: value })
+      .catch(error => {
+        console.log(error);
+      });
   };
+
+
+
 
   return (
     <div className='container-flued px-5 py-5'>
-      <table className="table  table-bordered table-hover">
+      <table className="table  table-bordered">
         <thead >
           <tr className='border-end'>
             <th className='text-center border-end-0' >Month 1</th>
@@ -55,48 +77,26 @@ const EditableTable = () => {
         <tbody>
           {data.map((row) => (
             <tr key={row.id}>
-              <td
-                className='text-center'
-                contentEditable
-                onBlur={(event) =>
-                  handleChange( 'name', event.target.textContent)}>{row.name}</td>
-              <td
-                className='text-center'
-                contentEditable
-                onBlur={(event) =>
-                  handleChange( 'name', event.target.textContent)}>{row.name}</td>
-              <td
-                className='text-center'
-                contentEditable
-                onBlur={(event) =>
-                  handleChange('name', event.target.textContent)}>{row.name}</td>
-              <td
-                className='text-center'
-                contentEditable
-                onBlur={(event) =>
-                  handleChange( 'name', event.target.textContent)}>{row.name}</td>
-              <td
-                className='text-center'
-                contentEditable
-                onBlur={(event) =>
-                  handleChange('name', event.target.textContent)}>{row.name}</td>
-              <td
-                className='text-center'
-                contentEditable
-                onBlur={(event) =>
-                  handleChange( 'name', event.target.textContent)}>{row.name}</td>
-              <td
-                className='text-center'
-                contentEditable
-                onBlur={(event) =>
-                  handleChange( 'name', event.target.textContent)}>{row.name}</td>
+             <EditableCell value={row.name} onSave={(value) => handleEdit(row.id, 'name', value)}/>
+             <EditableCell value={row.name2} onSave={(value) => handleEdit(row.id, 'name2', value)}/>
+             <EditableCell value={row.name3} onSave={(value) => handleEdit(row.id, 'name3', value)}/>
+             <EditableCell value={row.name4} onSave={(value) => handleEdit(row.id, 'name4', value)}/>
+             <EditableCell value={row.name5} onSave={(value) => handleEdit(row.id, 'name5', value)}/>
+             <EditableCell value={row.name6} onSave={(value) => handleEdit(row.id, 'name6', value)}/>
             </tr>
           ))}
         </tbody>
       </table>
       <button type="button" className="btn btn-primary" onClick={handleSaveClick}>Save</button>
+      <button type="button" className="btn btn-primary ms-5" onClick={handleCreate}>Create</button>
     </div>
   );
 }
+
+
+
+
+
+
 export default EditableTable;
 

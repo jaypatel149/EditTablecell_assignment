@@ -1,68 +1,57 @@
 {
   "data": [
     {
-      "id": 1,
-      "name": "Onbording Call"
+      "name": "OnBording Cal",
+      "id": 1
     },
     {
-      "id": 2,
-      "name": "Google Search "
+      "name": "Google Analysti",
+      "id": 2
     },
     {
-      "id": 3,
-      "name": "Google Analystic"
+      "name": "Google Searc",
+      "id": 3
     },
     {
-      "id": 4,
-      "name": "Website Access"
+      "name": "Websit",
+      "id": 4
     },
     {
-      "id": 5,
-      "name": "Technical Text"
+      "name": "Text and Semasti",
+      "id": 5
     },
     {
-      "id": 6,
-      "name": "Anchor Text and Semantic"
+      "name": "Anchor Tex",
+      "id": 6
     },
     {
-      "id": 7,
-      "name": "Competitor Analysis"
+      "name": "Google dat",
+      "id": 7
     },
     {
-      "id": 8,
-      "name": "Anchor Text"
+      "name": "Site Leve",
+      "id": 8
     },
     {
-      "id": 8,
-      "name": "Googledata"
+      "name": "Onsit",
+      "id": 9
     },
     {
-      "id": 9,
-      "name": "Site lavel"
+      "name": "Content Creactio",
+      "id": 10
     },
     {
-      "id": 10,
-      "name": "One page"
+      "name": "Premium Pres",
+      "id": 11
     },
     {
-      "id": 11,
-      "name": "Content Creation"
+      "name": "Authorit",
+      "id": 12
     },
     {
-      "id": 12,
-      "name": "Premium press"
-    },
-    {
-      "id": 13,
-      "name": "Authority Niche"
-    },
-    {
-      "id": 14,
-      "name": "Review Management"
-    },
-    {
-      "id": 15,
-      "name": "Index Links"
+      "name": "Review Managment",
+      "id": 13
     }
+    
   ]
 }
